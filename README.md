@@ -10,7 +10,10 @@
 
 <img width="643" alt="IOC_MX" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/e24cd8f0-b9a9-4c5b-82f7-f4bcb380b596">
 
-* 위의 설정대로 RCC_CLOCK을 맞춰주었고, COMPILE을 실행하면서 REGISTER 주소에 접근하여 기능을 뭘 키고 뭘 꺼야할지 숙지한 후에 주소로 접근하여 켜야할 곳에 FLAG를 표시하여 켜주는 것이 좋다.
+
+
+
+*위의 설정대로 RCC_CLOCK을 맞춰주었고, COMPILE을 실행하면서 REGISTER 주소에 접근하여 기능을 뭘 키고 뭘 꺼야할지 숙지한 후에 주소로 접근하여 켜야할 곳에 FLAG를 표시하여 켜주는 것이 좋다.*
 
 
 
