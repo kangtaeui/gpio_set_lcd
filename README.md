@@ -1,4 +1,4 @@
-# Turn LCD
+# Turn on LCD
 
 ![KakaoTalk_20240314_170734876](https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/831c38de-a542-4d5d-b4d0-05f711754f00)
 
