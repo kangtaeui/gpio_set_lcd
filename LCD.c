@@ -7,6 +7,24 @@ static void write_data(char ch);
 static void checkbusy();
 uint8_t CurState = 0;
 
+void GPIO_MODER()
+{
+  //SET D0~D7 MODER
+  GPIOA->MODER |= ( 1 << 0 );	// SET PA0 OUTPUT MODE
+  GPIOA->MODER |= ( 1 << 2 );	// SET PA1 OUTPUT MODE
+  GPIOA->MODER |= ( 1 << 8 );	// SET PA4 OUTPUT MODE
+  GPIOA->MODER |= ( 1 << 12 );  // SET PA6 OUTPUT MODE
+  GPIOA->MODER |= ( 1 << 14 );	// SET PA7 OUTPUT MODE
+  GPIOA->MODER |= ( 1 << 16 );	// SET PA8 OUTPUT MODE
+  GPIOA->MODER |= ( 1 << 18 );	// SET PA9 OUTPUT MODE
+  GPIOA->MODER |= ( 1 << 20 );	// SET PA10 OUTPUT MODE
+
+  //SET RW,RS,E MODER
+  GPIOB->MODER |= ( 1 << 8 );	//SET PB4 OUTPUT MODE
+  GPIOB->MODER |= ( 1 << 10 );	//SET PB5 OUTPUT MODE
+  GPIOB->MODER |= ( 1 << 12 );	//SET PB6 OUTPUT MODE
+}
+
 void LcdInit()
 {
 	//LCD_PORT	= 0xFF; // ddr on
