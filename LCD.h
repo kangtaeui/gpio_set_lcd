@@ -31,7 +31,7 @@
 #define DISP_RSHIFT		0x1c	//move display to right
 
 
-
+void GPIO_MODER();
 
 //--------------------------------------------------------------------
 //PORT BASE SET
