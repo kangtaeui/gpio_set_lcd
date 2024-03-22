@@ -33,7 +33,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define RCC_CR_SET                  (RCC_BASE + 0x00)
+/*#define RCC_CR_SET                  (RCC_BASE + 0x00)
 #define RCC_PLLCFGR_SET             (RCC_BASE + 0X04)
 #define RCC_CFGR_SET                (RCC_BASE + 0x08)
 
@@ -50,7 +50,7 @@
 #define RCC_CSR_SET                 (RCC_BASE + 0x74)
 #define RCC_PLLI2SCFGR_SET          (RCC_BASE + 0x84)
 #define RCC_PLLSAICFGR_SET          (RCC_BASE + 0x88)
-#define FLASH_ACR_SET               0x40023c00
+#define FLASH_ACR_SET               0x40023c00*/
 
 //#define RCC_PLLCFGR     (RCC_OFFSET + 0x04UL)
 /* USER CODE END PD */
