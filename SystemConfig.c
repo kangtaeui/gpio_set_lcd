@@ -51,6 +51,7 @@ void SystemClock_Init()
         //WAIT 
 	while (!(RCC->CR |= RCC_CR_PLLRDY));
         
+	//DIVIDE OR MULTIPLY FACTOR
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_4;
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLN_7;
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLR_1;
