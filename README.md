@@ -23,81 +23,79 @@
 
 
 
-# Process
+# *Process
 ## <Clock Tree>
 <img width="381" alt="clock" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/4f63cb5e-b8e9-4856-8a7a-b9e77cad6be9">
 
-## TARGET FREQUENCY SETTING, SPEED
+## *TARGET FREQUENCY SETTING, SPEED
 180MHz
 
-## STANDARD HSE FREQUENCY == INPUT
+## *STANDARD HSE FREQUENCY == INPUT
 <img width="395" alt="INPUT_FREQUENCY" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/2c4254b5-7f36-42d8-8cb0-25061f6844bc">
 
-## Following steps (180MHz)
+### *IF YOU ARE USING OVERDRIVE MODE, you must follow these steps.
 <img width="523" alt="Sequence for turn on overdrive" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/6e8c6610-f317-4d1f-87ca-3173f1b4a3da">
 
-### IF YOU ARE USING OVERDRIVE MODE, you must follow these steps.
-
-### WHY Using ODE? BECAUSE CLOCK SPEED IS 180MHz
+### *WHY Using ODE? BECAUSE CLOCK SPEED IS 180MHz
 <img width="497" alt="180MHz BY OVERDRIVE" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/398a7b1c-5b56-4222-b888-f6792e470544">
 
-## 1. RCC_CR register
+## *1. RCC_CR register
 <img width="397" alt="Process1-3" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/ca0cc1e1-b855-402d-93c7-9adf8828b8c8">
 
-### 1-1) HSE ON
+### *1-1) HSE ON
 <img width="340" alt="process1" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/d3e538f9-c36b-4eee-8e82-9d59638473a1">
 
-### 1-2) HSE Ready set by Hardware, so we wait for signal stable
+### *1-2) HSE Ready set by Hardware, so we wait for signal stable
 ![스크린샷 2024-03-21 093700](https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/b644bd4d-06b4-49e6-8de0-8f3edfeaa01f)
 
-### 1-3) PLL ON & PLL READY
+### *1-3) PLL ON & PLL READY
 <img width="496" alt="PLLON_RDY" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/c92b19be-d49d-44da-a644-14c636fd5919">
 
-## 2. PLL CONFIGURATION, RCC_PLLCFGR register (divide factor)
+## *2. PLL CONFIGURATION, RCC_PLLCFGR register (divide factor)
 ![Process2](https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/b87dabc1-0187-4b60-85a6-b8365b25eff1)
 <img width="578" alt="PLL_CFGR Register" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/8aacba7b-cea7-4a22-837c-d16ab3ce222a">
 
-### 2-1) PLLM
+### *2-1) PLLM
 <img width="502" alt="PLLM" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/f782d2b9-d261-4032-9ed5-d581030e18a2">
 
-### 2-2) PLLN
+### *2-2) PLLN
 <img width="530" alt="PLLN" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/d857d8c7-1eae-4ec2-a393-d7f40adab273">
 
-### 2-3) PLLR
+### *2-3) PLLR
 <img width="494" alt="PLLR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/a77ce8f6-1150-40fc-8ef8-ac233752e127">
 
-## 3. SYSCLK SET (POWER ENABLE, FLASH SET)
+## *3. SYSCLK SET (POWER ENABLE, FLASH SET)
 <img width="578" alt="LATENCY SET (HCLK" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/aaa8f49b-cf0b-4f33-93ea-a8c717fa4e0d">
 
-### 3-1) RCC_APB1ENR
+### *3-1) RCC_APB1ENR
 <img width="573" alt="RCC_APB1ENR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/f5a859c3-95da-4f64-afa6-e79e75ae638d">
 
-### 3-2) PWR_CR VOS (SCALE SET), PWR_CR ODE (OVERDRIVE ON), PWR_CSR (WAIT FOR OVERDRIVE REDAY == RDY FUNCTION)
+### *3-2) PWR_CR VOS (SCALE SET), PWR_CR ODE (OVERDRIVE ON), PWR_CSR (WAIT FOR OVERDRIVE REDAY == RDY FUNCTION)
 <img width="575" alt="PWR_CR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/e5f5076e-c058-4d87-a239-83627aba4df9">
 <img width="550" alt="VOS, OVEERDRIVE" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/7aa4c3db-fdf1-4da9-88ed-dbbe20b1ffb8">
 <img width="587" alt="PWR_CSR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/055d0907-2b91-48d7-bd4d-e9adfe8d2a56">
 
-### 3-3) FLASH_ACR SET
+### *3-3) FLASH_ACR SET
 <img width="581" alt="FLASH_ACR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/d401cd11-a44b-4de9-abae-d2189d715ed4">
 <img width="499" alt="ACR_LATENCY" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/5c259559-eebb-42a7-8073-8c3fd7e632ee">
 
 
-## 4. RCC_CFGR register ( PLLR SELECT )
+## *4. RCC_CFGR register ( PLLR SELECT )
 <img width="580" alt="RCC_CFGR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/dc46d93b-f3b0-4037-9f1b-c743ffdfdfe1">
 
-### 4-1) RCC_CFGR SET PLLR ON
+### *4-1) RCC_CFGR SET PLLR ON
 <img width="501" alt="SWS,SWR PLLR SELECT" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/20a52671-8166-4847-be0e-c1d8a68f9c59">
 
-### 4-2) HPRE SET
+### *4-2) HPRE SET
 <img width="518" alt="HPRE" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/b46ff9fe-05e5-4dcd-a373-354838e08b34">
 
-### 4-3) PPRE1 SET, APB1 SCALE
+### *4-3) PPRE1 SET, APB1 SCALE
 <img width="525" alt="PPRE1" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/927bf744-dd1f-46be-b13d-373857c4e2fd">
 
-## 5. GPIO ENABLE, RCC_AHB1ENR, GPIOA, GPIOB, GPIOH
+## *5. GPIO ENABLE, RCC_AHB1ENR, GPIOA, GPIOB, GPIOH
 <img width="578" alt="AHB1ENR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/40821051-dd0e-4d3b-be44-6edfddf32b97">
 
-### 5-1) Why use a GPIO PORT H? RCC OSC IN/OUT SET
+### *5-1) Why use a GPIO PORT H? RCC OSC IN/OUT SET
 <img width="475" alt="osc_in" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/f4890c54-a3ca-4d45-add5-198f963383d0">
 <img width="568" alt="osc_in_out" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/bf238b01-3ef9-436e-a76e-128de575c1f4">
 
