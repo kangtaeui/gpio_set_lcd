@@ -58,7 +58,13 @@ void SystemClock_Init()
 	//180MHz Setting and clock enable
 	RCC->APB1ENR |= RCC_APB1ENR_PWREN;	//power enable
 	PWR->CR |= PWR_CR_VOS_3 ;		//regulator
+	
 	PWR->CR |= PWR_CR_ODEN_Msk;		//LOW VOLATAGE MODE == OVERDRIVE ON
+	while (!(PWR->CSR & PWR_CSR_ODRDY)); // Wait for Over-drive mode to be ready
+	
+	PWR->CR |= PWR_CR_ODSWEN_Msk;   //INITIAL VALUE IS 0, SO WE NEED TO TURN ON ODSWEN;
+	while (!(PWR->CSR & PWR_CSR_ODSWRDY));	//USE CSR REGISTER BECAUSE CSR HAVE RDY FUNC
+	
 	FLASH->ACR |= FLASH_ACR_LATENCY_5WS;
 
 
