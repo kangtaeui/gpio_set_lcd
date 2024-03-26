@@ -74,6 +74,9 @@
 <img width="575" alt="PWR_CR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/e5f5076e-c058-4d87-a239-83627aba4df9">
 <img width="550" alt="VOS, OVEERDRIVE" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/7aa4c3db-fdf1-4da9-88ed-dbbe20b1ffb8">
 <img width="587" alt="PWR_CSR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/055d0907-2b91-48d7-bd4d-e9adfe8d2a56">
+<img width="427" alt="ODSWEN" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/3ee685e3-3401-47bb-9892-9d7120b28e0e">
+
+
 
 ### *3-3) FLASH_ACR SET
 <img width="581" alt="FLASH_ACR" src="https://github.com/kangtaeui/gpio_set_lcd/assets/141004174/d401cd11-a44b-4de9-abae-d2189d715ed4">
